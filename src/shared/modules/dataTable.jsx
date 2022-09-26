@@ -46,7 +46,6 @@ class DataTableController{
         if(!this.reload ){
             this.table.on('select', (e, dt, type, index) => {
                 // console.log("select row : ",dt.context[0].aoData[index]._aData);
-                console.log("select")
                 this.setDataRow(dt.context[0].aoData[index]._aData);
             })
             this.table.on('deselect', () => {

@@ -41,12 +41,6 @@ function MenuItem({path,description,icon}){
 
 export const MenuItems = () => {
 
-  React.useEffect(() => {
-    console.log(MENU_ITEMS);
-    MENU_ITEMS.map((item) => {
-      console.log(item)
-    })
-  })
   return(
   <React.Fragment>
     {

@@ -37,7 +37,6 @@ export default class FirebaseService {
     async getAllDocumentsCollection(){
         try {
             const q = query(collection(getFirestore(appfb), this.COLLECTION_NAME));
-            console.log("docs",getDocs(q))
             return await getDocs(q);
 
         } catch (bError) {
@@ -104,7 +103,6 @@ export default class FirebaseService {
     async getCollection() {
         try {
             const q = query(collection(getFirestore(appfb), this.COLLECTION_NAME));
-            console.log("docs",getDocs(q))
             return await getDocs(q);
 
         } catch (bError) {

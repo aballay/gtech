@@ -55,7 +55,6 @@ export default class IServices {
 
         }catch(bError){
             console.error(bError);
-        console.log("Consulta a firebase")
             throw new Error("Error al obtener el documento de la colección:",this.ID_COLLECTION);
         }
     }

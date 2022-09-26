@@ -22,7 +22,6 @@ const ControllerProvider = ({ children }) => {
     // Obtiene listado de clientes.
     // Si el listado ya esta inicializado devuelve el listado, sino consulta a firebase.
     const getClients = async () => {
-        console.log(clientsController)
         if (isFirstTime(clients)) {
             let xClients = await clientsController.getClients();
             setClients(xClients);

@@ -10,6 +10,7 @@ import { Box, Stack, Tooltip } from '@mui/material';
 import { AppContext } from '../../controllers/modules/ControllerProvider';
 import { useContext } from 'react';
 import UtilitiesShared from '../../shared/utilities/UtilitiesShared';
+import ModalClients from '../../shared/modules/modalClients';
 
 
 
@@ -22,6 +23,7 @@ export default function MoudleClients() {
     const [isLoading, setIsLoading] = useState(true);
     const [openGlass, setOpenGlass] = React.useState(false);
     const [reloadDataTable, setReloadDataTable] = React.useState(false);
+    const [openModal,setOpenModal] = useState(false);
 
     //Define Controller Provider
     const CONTEXT_PROVIDER = useContext(AppContext);
@@ -40,6 +42,16 @@ export default function MoudleClients() {
         setIsLoading(true);
     }
 
+    
+
+    const handleOpenModal = () => {
+        setOpenModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    };
+
     React.useEffect(() => {
         getClients();
     }, [])
@@ -57,7 +69,7 @@ export default function MoudleClients() {
                         </Tooltip>
 
                         <Tooltip title="Agregar cliente">
-                            <Button sx={{ mr: 5, ml: 5 }} variant="contained" color="primary"  ><AddIcon /></Button>
+                            <Button sx={{ mr: 5, ml: 5 }} variant="contained" color="primary"  onClick={handleOpenModal} ><AddIcon /></Button>
                         </Tooltip>
 
                     </Stack>
@@ -66,6 +78,7 @@ export default function MoudleClients() {
                 :
                 <CircularProgress color="primary" />}
 
+            <ModalClients open={openModal} handleClose={handleCloseModal} isCreating={true}  />
             <Glass open={openGlass} />
         </Container>
 
